@@ -51,11 +51,11 @@ static uint8_t parseNMEA(uint8_t* data)
         return 0;
     }
 
-    // Separate data fields based on commas    
+        
     uint8_t num_fields = 1;
     uint8_t calculated_checksum = 0;
     uint8_t char_counter = 1;
-    
+    // Separate data fields based on commas
     while (data[char_counter] != '*' && char_counter < MAX_LENGTH)
     {
         calculated_checksum ^= data[char_counter];
