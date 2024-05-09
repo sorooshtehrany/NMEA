@@ -20,9 +20,6 @@
 
 /* Private variables ---------------------------------------------------------*/
 extern CAN_HandleTypeDef hcan1;
-CAN_TxHeaderTypeDef TxHeader;
-uint8_t TxData[8];
-uint32_t TxMailbox;
 /* Private function prototypes -----------------------------------------------*/
 
 /* Private user code ---------------------------------------------------------*/
@@ -43,7 +40,9 @@ void sendGPSDataOverCAN(uint8_t* gpsData, uint16_t dataLength)
 {
     uint8_t i;
     uint8_t canTxData[CAN_PAYLOAD_SIZE];
-
+    CAN_TxHeaderTypeDef TxHeader;
+    uint8_t TxData[8];
+    uint32_t TxMailbox;
     // Start the CAN transmit
     HAL_CAN_Start(&hcan1);
 
